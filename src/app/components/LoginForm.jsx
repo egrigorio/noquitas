@@ -23,8 +23,8 @@ export function LoginForm() {
       if (response.status === 200) {
         console.log("deu")
         Swal.fire({
-          title: 'Sucesso!',
-          text: 'Logado com sucesso!',
+          title: 'gruta!!!',
+          text: 'acertou a senha, ale!!',
           icon: 'success',
           confirmButtonText: 'OK'
         });
@@ -32,8 +32,8 @@ export function LoginForm() {
         // Router.push("/dashboard"); // Descomente esta linha se quiser redirecionar o usuário
       } else {
         Swal.fire({
-          title: 'Erro!',
-          text: 'Utilizador ou senha incorreta.',
+          title: 'não!',
+          text: 'se nao for nem o enzo nem a nocas pode ir embora!',
           icon: 'error',
           confirmButtonText: 'OK'
         });
