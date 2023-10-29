@@ -33,7 +33,7 @@ export function LoginForm() {
       } else {
         Swal.fire({
           title: 'Erro!',
-          text: 'Utilizador ou senha incorreta',
+          text: 'Utilizador ou senha incorreta.',
           icon: 'error',
           confirmButtonText: 'OK'
         });
