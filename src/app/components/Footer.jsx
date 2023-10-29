@@ -26,7 +26,7 @@ export function Footer() {
           src="/kbyefornow.jpg"
           width={56}
           height={56}
-          alt="Capa do album"
+          alt="Capa do aalbum"
         />
         <div className="flex flex-col">
           <strong className="font-normal">into you live</strong>
