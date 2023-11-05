@@ -1,16 +1,18 @@
-// LoginForm.jsx
-
 "use client";
+import { useAuth } from "../authContext";
 import { useState } from "react";
+import { useUser } from '../userContext';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 export function LoginForm() {
+  const { setUserName } = useUser();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  
 
-  async function verificarLogin() {
+  const verificarLogin = async (router) => {
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -21,15 +23,17 @@ export function LoginForm() {
       });
 
       if (response.status === 200) {
-        console.log("deu")
+        console.log("deu");
         Swal.fire({
           title: 'gruta!!!',
           text: 'acertou a senha, ale!!',
           icon: 'success',
           confirmButtonText: 'OK'
         });
-        setAuthenticated(true);
-        // Router.push("/dashboard"); // Descomente esta linha se quiser redirecionar o usuário
+
+        setIsAuthenticated(true);
+        setUserName(username);
+        router.push("/dashboard");
       } else {
         Swal.fire({
           title: 'não!',
@@ -42,9 +46,9 @@ export function LoginForm() {
     } catch (error) {
       console.error("Erro na solicitação:", error);
     }
-  }
+  };
 
-  if (authenticated) {
+  if (isAuthenticated) {
     // Se o usuário já está autenticado, você pode redirecioná-lo para a página desejada
     // Router.push("/dashboard");
   }
@@ -85,7 +89,7 @@ export function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify between">
             <button
               className="m-auto bg-blue-500 hover.bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"

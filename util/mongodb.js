@@ -2,6 +2,7 @@
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
+//const uri = "mongodb+srv://enzonascentess:vilanova123@calendar.hzw1ypx.mongodb.net/?retryWrites=true&w=majority"
 const dbName = "nxs"; 
 const options = {
   useUnifiedTopology: true,
