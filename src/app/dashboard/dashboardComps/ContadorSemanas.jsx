@@ -13,7 +13,7 @@ function ContadorSemanas() {
 
   return (
     <a href="#">
-      <h1>Semana {contadorSemanas}</h1>
+      <h1 className='text-black dark:text-white'>Semana {contadorSemanas}</h1>
     </a>
   );
 }

@@ -8,7 +8,7 @@ let client: MongoClient | undefined;
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const { username, password } = req.body;
-
+    
     try {
       const { db, client } = await connectToDatabase(); // Conecta ao banco de dados
 
